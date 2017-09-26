@@ -193,9 +193,13 @@ public class Program {
 ### Protocolos
 Em swift existe a ideia de protocolos, que nada mais é do que um escopo que define tanto métodos quanto propriedades a uma classe ou a uma estrutura existente, sempre lembrando que para estar em conformidade com um protocolo, uma classe ou estrutura deve ter todas as suas funcionalidades implementadas. Os protocolos possuem uma funcionalidade similar à herança na orientação a objetos do Java porém sem nenhuma associação fortemente vinculada, além disso o conceito de protocolos se estende não só a classes como também para structs e enums, enquanto heranças são restritas a classes. 
 
-Vale lembrar também que com protocolos podemos implementar o conceito de múltiplas heranças, algo que em algumas linguagens de programação não existe. Esse aspecto dos protocolos faz com que seu comportamento se assemelhe bastante também com o conceito de Interfaces em Java, porém possuindo mais funcionalidades do que estas, como a implementação de métodos padrões e métodos opcionais (aspectos que ajudam na redução de códigos duplicados ou desnecessários). 
+Vale lembrar também que com protocolos podemos implementar o conceito de múltiplas heranças, algo que em algumas linguagens de programação não existe. Esse aspecto dos protocolos faz com que seu comportamento se assemelhe bastante também com o conceito de Interfaces em Java, porém possuindo mais funcionalidades do que estas. Como alguma das principais diferenças entre esses conceitos podemos citar a definição de propriedades, ou seja, definição de campos que as classes ou estruturas que adotam esse protocolo devem possuir; a implementação de métodos opcionais, usando a keyword ```@objc```, e métodos padrões, através da keyword ```extension```; podemos utili. Esses aspectos que ajudam na redução de códigos duplicados ou desnecessários. 
+Além disso, podemos combinar protocolos a qualquer momento usando '''protocol<>'''. Isso é útil para, por exemplo, definir uma variável que deve estar de acordo com dois protocolos A e B da seguinte forma:
+```swift
+func foo ( var1 : protocol<A, B> ){}
+```
 
-Protocolos são tão importantes e possuem um poder de expressão tão grande, que um novo paradigma de programação denominado **programação orientada a protocolos** passou a ser utilizado por muitos desenvolvedores nos últimos anos.
+Protocolos são tão importantes e possuem um poder de expressão tão grande, que um novo paradigma de programação denominado **programação orientada a protocolos** passou a ser utilizado por muitos desenvolvedores nos últimos anos. Esse paradigma tem seu foco principalmente na maneira que um objeto interage com o ambiente, similar a idéia de uma interface, em vez do próprio objeto, obtendo uma visão mais generalizada e objetiva do que está sendo feito.
 
 ``` swift
 protocol Drivable {
@@ -226,6 +230,8 @@ Em Swift, ao criarmos variáveis de um determinado tipo, sem atribuir valores a 
 Isso implica que tipos não-opcionais não podem resultar em um erro de ponteiro nulo,com o compilador podendo garantir que isso não é possível. A aplicação desses tipos opcionais na linguagem diminui a incidência de erros causados pela falta de checagem quanto ao retorno de valores de tipos não esperados, que muitas vezes causam resultados inesperados.
 
 Para facilitar a integração da linguagem com esses recursos de tipos opcionais, foram desenvolvidos dois operadores ```?``` e ```!```, onde o primeiro indica que trata-se de um tipo opcional, que deve ser testado quanto a um possível valor ```nil```, e o segundo mostra o valor do opcional quando sabemos que esse valor existe e desejamos acessá-lo. Podemos utilizar também o ```?```, para tentar acessar uma varíavel de uma instância que pode não possuir um valor esperado, indicando que nesse caso desejamos testar se há o retorno esperado ou um valor vazio. Esses operadores facilitam a escrita de um código mais enxuto, porém podem vir a atrapalhar a leitura do código em algumas situações.
+
+Esse conceito de ```Optionals``` já está presente em algumas outras linguagens de programação, podemos inclusive observar a influências que algumas linguagens já citadas anteriormente como Haskell e Rust tiveram sobre o desenvolvimento desse conceito em Swift, principalmente ao analisarmos que ao funcionamento desses tipos e métodos opcionais é extremamente similar a da keyword ```maybe``` em Haskell. 
 
 Optional Values em Swift 
 ```Swift
