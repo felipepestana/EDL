@@ -30,8 +30,7 @@ function love.keypressed (key)
             isPause = true
             direction ={'stop'}
         end
-   
-    elseif isPause then
+      elseif isPause then
         if key == 'escape' then
             love.event.quit()
         elseif key == 'space' then
